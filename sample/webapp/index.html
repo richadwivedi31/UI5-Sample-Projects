@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+        <meta charset="UTF-8"/>
+        <title> Open SAP - Developing webapps with SAP UI5</title> 
+
+    </head>
+
+    <script
+        id="sap-ui-bootstrap"
+        src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+        data-sap-ui-theme="sap_bluecrystal"
+        data-sap-ui-libs="sap.m"
+        data-sap-ui-compatVersion="edge"
+        data-sap-ui-preload="async"
+        data-sap-ui-resourceroots = '{"sample_app.webapp" : "./"}'>
+
+    </script>
+
+    <script>
+        sap.ui.getCore().attachInit(function () {
+        // alert("SAPUI5 is ready");
+        // var oImage = sap.m.Image({
+        //     src:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/2880px-SAP_2011_logo.svg.png"
+        // }).placeAt("content");
+        // oImage.setHeight("400px");
+        // });
+
+          sap.ui.xmlview({
+            viewName : "sample_app.webapp.view.App"
+        }).placeAt("content");
+    });
+
+    </script>
+    <body class="sapUiBody" id="content"/>
+    
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <style>
+        html, body, body > div, #container, #container-uiarea {
+            height: 100%;
+        }
+    </style>
+    <script
+        id="sap-ui-bootstrap"
+        src="resources/sap-ui-core.js"
+        data-sap-ui-theme="sap_horizon"
+        data-sap-ui-resourceroots='{
+            "sample": "./"
+        }'
+        data-sap-ui-compatVersion="edge"
+        data-sap-ui-async="true"
+        data-sap-ui-frameOptions="trusted"
+    ></script>
+    <script id="locate-reuse-libs" src="./utils/locate-reuse-libs.js"
+        data-sap-ui-manifest-uri="./manifest.json"
+        data-sap-ui-componentName="sample">
+    </script> 
+</head>
+<body class="sapUiBody sapUiSizeCompact" id="content">
+    <div
+        data-sap-ui-component
+        data-name="sample"
+        data-id="container"
+        data-settings='{"id" : "sample"}'
+        data-handle-validation="true"
+    ></div>
+</body>
+</html> -->

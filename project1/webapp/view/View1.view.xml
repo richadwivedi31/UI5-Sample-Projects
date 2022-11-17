@@ -1,0 +1,6 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sab.btp.project1.controller.View1" displayBlock="true">
+    <Page id="page" title="{i18n>title}">
+        <content><Text xmlns="sap.m" text="Hello World" id="text2" textAlign="Center"/><Button xmlns="sap.m" text="Ready" id="button0"/>
+        </content>
+    </Page>
+</mvc:View>
