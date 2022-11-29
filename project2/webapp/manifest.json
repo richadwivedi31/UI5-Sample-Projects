@@ -16,16 +16,23 @@
             "toolsId": "074ac865-07e7-4591-8735-bbd7618df87a"
         },
         "dataSources": {
+            "ES5": {
+            "uri": "/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/",
+            "type": "OData",
+            "settings": {
+                "odataVersion": "2.0"
+                }
+            },
             "mainService": {
-                "uri": "/V2/Northwind/Northwind.svc/",
+                "uri": "/sap/opu/odata/iwbep/GWSAMPLE_BASIC/",
                 "type": "OData",
                 "settings": {
-                    "annotations": [],
-                    "localUri": "localService/metadata.xml",
-                    "odataVersion": "2.0"
+                  "annotations": [],
+                  "localUri": "localService/metadata.xml",
+                  "odataVersion": "2.0"
                 }
+              }
             }
-        }
     },
     "sap.ui": {
         "technology": "UI5",
@@ -81,7 +88,7 @@
                 "dataSource": "mainService",
                 "preload": true,
                 "settings": {}
-            }
+              }
         },
         "resources": {
             "css": [

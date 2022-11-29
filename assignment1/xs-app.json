@@ -3,9 +3,9 @@
   "authenticationMethod": "route",
   "routes": [
     {
-      "source": "^/sap/(.*)$",
-      "target": "/sap/$1",
-      "destination": "ES5",
+      "source": "^/V2/(.*)$",
+      "target": "/V2/$1",
+      "destination": "Northwind",
       "authenticationType": "xsuaa",
       "csrfProtection": false
     },
@@ -27,6 +27,5 @@
       "service": "html5-apps-repo-rt",
       "authenticationType": "xsuaa"
     }
-  
   ]
 }

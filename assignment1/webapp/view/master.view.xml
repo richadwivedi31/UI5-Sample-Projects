@@ -1,0 +1,19 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="assignment1.controller.master" displayBlock="true">
+    <Page id="page" title="{i18n>title}">
+    <content>
+      
+    <List id="list0" items="{/Products}">
+      
+    <items>
+      
+        <ObjectListItem type="Active" title="{ProductName}" number="{QuantityPerUnit}" intro="{ProductID}" id="item1" press="onClickListItem">
+      
+        </ObjectListItem>
+      
+    </items>
+      
+    </List>
+      
+    </content>
+    </Page>
+</mvc:View>
