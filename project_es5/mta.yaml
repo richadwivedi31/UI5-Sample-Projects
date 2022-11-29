@@ -1,0 +1,94 @@
+_schema-version: "3.2"
+ID: projectes5
+description: A Fiori application.
+version: 0.0.1
+modules:
+- name: projectes5-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: projectes5-destination-service
+    parameters:
+      content-target: true
+  - name: projectes5-repo-host
+    parameters:
+      service-key:
+        name: projectes5-repo-host-key
+  - name: projectes5-uaa
+    parameters:
+      service-key:
+        name: projectes5-uaa-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: projectes5_html_repo_host
+          ServiceInstanceName: projectes5-html5-srv
+          ServiceKeyName: projectes5-repo-host-key
+          sap.cloud.service: projectes5
+        - Authentication: OAuth2UserTokenExchange
+          Name: projectes5_uaa
+          ServiceInstanceName: projectes5-xsuaa-srv
+          ServiceKeyName: projectes5-uaa-key
+          sap.cloud.service: projectes5
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: projectes5-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: projectes5-repo-host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - projectes5.zip
+      name: projectes5
+      target-path: resources/
+- name: projectes5
+  type: html5
+  path: .
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: projectes5-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: projectes5-destination-service
+    service-plan: lite
+- name: projectes5-uaa
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: projectes5-xsuaa-srv
+    service-plan: application
+- name: projectes5-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: projectes5-html5-srv
+    service-plan: app-host
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
