@@ -62,7 +62,20 @@
                                 <content>
                                     <List id="list0" items="{/ProductSet}" headerText="{i18n>productListTitle}">
                                         <items>
-                                            <ObjectListItem type="Active" title="{Name}" number="{Category}" intro="{ProductID}" id="item1" press="onClickListItem" />
+                                            <ObjectListItem type="Active" title="{Name}" number="{Price}" numberState="{= ${Price} &gt; 500 ? 'Error' : 'Success' }" intro="{ProductID}" id="item1" press="onClickListItem">
+                                                <firstStatus>
+                                                    <ObjectStatus 
+                                                        xmlns="sap.m" 
+                                                        text="{
+                                                        parts:[
+                                                            {path: 'WeightUnit'},
+                                                            {path: 'WeightMeasure'}
+                                                            ],
+                                                        custom_formatter : '.custom_formatter.delivery'
+                                                    }" 
+                                                    id="status8" />
+                                                </firstStatus>
+                                            </ObjectListItem>
                                         </items>
                                     </List>
                                 </content>
