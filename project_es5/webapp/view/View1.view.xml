@@ -8,39 +8,45 @@
                             <IconTabFilter id="start" text="{i18n>gettingStartedFilter}">
                                 <Carousel id="oCarous" height="200px">
                                     <pages>
-                                        <Image id="oImg1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/2880px-SAP_2011_logo.svg.png" height="200px"/>
-                                        <Image id="oImg2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/2880px-SAP_2011_logo.svg.png" height="200px"/>
+                                        <Image id="oImg1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/2880px-SAP_2011_logo.svg.png" height="200px" />
+                                        <Image id="oImg2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/2880px-SAP_2011_logo.svg.png" height="200px" />
                                     </pages>
                                 </Carousel>
-                                <Button id="b1" text="{i18n>showHelloButtonText}" press="onShowHello"/>
-                                <Input id="in1" value="{path: 'helloPanel>/recipient/amount',                                                         type: 'sap.ui.model.type.Float',                                                         formatOptions: {minFractionDigits: 2},                                                         constraints: {maximum : 2000}                                                         }" description="Hello {helloPanel>/recipient/name}" valueLiveUpdate="false" width="60%"/>
+                                <Button id="b1" text="{i18n>showHelloButtonText}" press="onShowHello" />
+                                <Input
+                                    id="in1"
+                                    value="{path: 'helloPanel>/recipient/amount',                                                         type: 'sap.ui.model.type.Float',                                                         formatOptions: {minFractionDigits: 2},                                                         constraints: {maximum : 2000}                                                         }"
+                                    description="Hello {helloPanel>/recipient/name}"
+                                    valueLiveUpdate="false"
+                                    width="60%"
+                                />
                             </IconTabFilter>
 
                             <IconTabFilter id="layouts" text="{i18n>layoutFilter}">
-                                <MessageStrip id="idMessageStrip1" type="Information" showIcon="true" text="Hi, this is message strip and here we can display the alerts or important messages"/>
+                                <MessageStrip id="idMessageStrip1" type="Information" showIcon="true" text="Hi, this is message strip and here we can display the alerts or important messages" />
 
                                 <f:SimpleForm id="SimpleForm" title="Address" editable="true" class="editableForm">
                                     <f:content>
-                                        <Label id="idl1" text="{i18n>FormName}"/>
-                                        <Input id="idIn1" value="{address>/Name}"/>
+                                        <Label id="idl1" text="{i18n>FormName}" />
+                                        <Input id="idIn1" value="{address>/Name}" />
 
-                                        <Label id="idl2" text="{i18n>FormStreet}"/>
-                                        <Input id="idIn2" value="{address>/Street}"/>
+                                        <Label id="idl2" text="{i18n>FormStreet}" />
+                                        <Input id="idIn2" value="{address>/Street}" />
 
-                                        <Label id="idl3" text="{i18n>FormHouseNumber}"/>
-                                        <Input id="idIn3" value="{address>/HouseNumber}"/>
+                                        <Label id="idl3" text="{i18n>FormHouseNumber}" />
+                                        <Input id="idIn3" value="{address>/HouseNumber}" />
 
-                                        <Label id="idl4" text="{i18n>FormPinCode}"/>
-                                        <Input id="idIn4" value="{address>/PinCode}"/>
+                                        <Label id="idl4" text="{i18n>FormPinCode}" />
+                                        <Input id="idIn4" value="{address>/PinCode}" />
 
-                                        <Label id="idl5" text="{i18n>FormCity}"/>
-                                        <Input id="idIn5" value="{address>/City}"/>
+                                        <Label id="idl5" text="{i18n>FormCity}" />
+                                        <Input id="idIn5" value="{address>/City}" />
 
-                                        <Label id="idl6" text="{i18n>FormState}"/>
-                                        <Input id="idIn6" value="{address>/State}"/>
+                                        <Label id="idl6" text="{i18n>FormState}" />
+                                        <Input id="idIn6" value="{address>/State}" />
 
-                                        <Label id="idl7" text="{i18n>FormCountry}"/>
-                                        <Input id="idIn7" value="{address>/Country}"/>
+                                        <Label id="idl7" text="{i18n>FormCountry}" />
+                                        <Input id="idIn7" value="{address>/Country}" />
                                         <!-- <Select id="idSelect1">
                                             <items>
                                                 <core:Item id="idItem1" text="{i18n>CountryIndia}" />
@@ -52,16 +58,22 @@
                                 </f:SimpleForm>
 
                                 <Toolbar id="idToolbar1">
-                                    <ToolbarSpacer id="idToolbarSapcer"/>
-                                    <Button id="idButton2" text="{i18n>layoutPublishButton}" type="Accept" icon="sap-icon://outbox"/>
-                                    <Button id="idButton3" text="{i18n>layoutDraftButton}" icon="sap-icon://save"/>
+                                    <ToolbarSpacer id="idToolbarSapcer" />
+                                    <Button id="idButton2" text="{i18n>layoutPublishButton}" type="Accept" icon="sap-icon://outbox" />
+                                    <Button id="idButton3" text="{i18n>layoutDraftButton}" icon="sap-icon://save" />
                                 </Toolbar>
                             </IconTabFilter>
 
                             <IconTabFilter id="product_list" text="{i18n>dataBindingFilter}" key="db">
                                 <content>
-                                    <List id="list0" items="{                                             path : '/ProductSet',                                             sorter : {                                             path : 'Category',                                             group : true                                             }                                             }" growing="true" growingThreshold="10" growingScrollToLoad="false">
-                                            <!-- growing enables the paging mechanism 
+                                    <List
+                                        id="list0"
+                                        items="{                                             path : '/ProductSet',                                             sorter : {                                             path : 'Category',                                             group : true                                             }                                             }"
+                                        growing="true"
+                                        growingThreshold="5"
+                                        growingScrollToLoad="false"
+                                    >
+                                        <!-- growing enables the paging mechanism 
                                             growingThreshold to 5 we tell the list to initially display 5
                                             items and add 5 more when a user clicks on the “More” button
                                             
@@ -69,27 +81,36 @@
                                             bottom instead of automatically loading more items when a user scrolls down in the list. -->
                                         <headerToolbar>
                                             <Toolbar id="toolbar1">
-                                                <Title id="t1" text="{i18n>productListTitle}"/>
-                                                <ToolbarSpacer id="ts1"/>
-                                                <SearchField id="sf1" width="50%" search="onFilterProducts"/>
+                                                <Title id="t1" text="{i18n>productListTitle}" />
+                                                <ToolbarSpacer id="ts1" />
+                                                <SearchField id="sf1" width="50%" search="onFilterProducts" />
                                             </Toolbar>
                                         </headerToolbar>
                                         <items>
-                                            <ObjectListItem type="Active" title="{Name}" number="{ parts : [ {path: 'Price'},  {path: 'CurrencyCode'}], type: 'sap.ui.model.type.Currency',                                             formatOptions: {                                             showMeasure: false                                             }                                                                                          }" numberState="{= ${Price} &gt; 500 ? 'Error' : 'Success' }" intro="{ProductID}" id="item1" numberUnit="{CurrencyCode}" press="onListItemSelected">
+                                            <ObjectListItem
+                                                type="Active"
+                                                title="{Name}"
+                                                number="{ parts : [ {path: 'Price'},  {path: 'CurrencyCode'}], type: 'sap.ui.model.type.Currency',                                             formatOptions: {                                             showMeasure: false                                             }                                                                                          }"
+                                                numberState="{= ${Price} &gt; 500 ? 'Error' : 'Success' }"
+                                                intro="{ProductID}"
+                                                id="item1"
+                                                numberUnit="{CurrencyCode}"
+                                                press="onListItemSelected"
+                                            >
                                                 <firstStatus>
-                                                    <ObjectStatus xmlns="sap.m" text="{parts:[ {path: 'WeightUnit'}, {path: 'WeightMeasure'}],formatter : '.formatter.delivery'}" id="status8"/>
+                                                    <ObjectStatus xmlns="sap.m" text="{parts:[ {path: 'WeightUnit'}, {path: 'WeightMeasure'}],formatter : '.formatter.delivery'}" id="status8" />
                                                 </firstStatus>
                                             </ObjectListItem>
                                         </items>
                                     </List>
-                                    
+
                                     <Panel id="panel1" headerText="{i18n>PanelHeader}" visible="false">
-                                    <l:Grid id="grid1">
-                                    <Text id="text1" text="{i18n>PanelID}: {ProductID}"/>
-                                    <Text id="text2" text="{i18n>PanelName}: {Name}"/>
-                                    <Text id="text3" text="{i18n>PanelDescription}: \n {Description}"/>
-                                    <Text id="text4" text="{i18n>PanelPrice}: {Price}"/>
-                                    </l:Grid>
+                                        <l:Grid id="grid1">
+                                            <Text id="text1" text="{i18n>PanelID}: {ProductID}" />
+                                            <Text id="text2" text="{i18n>PanelName}: {Name}" />
+                                            <Text id="text3" text="{i18n>PanelDescription}: {Description}" />
+                                            <Text id="text4" text="{i18n>PanelPrice}: {Price}" />
+                                        </l:Grid>
                                     </Panel>
                                 </content>
                             </IconTabFilter>

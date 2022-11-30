@@ -50,7 +50,22 @@ sap.ui.define([
 
             onListItemSelected: function(oEvent){
 
-                
+                // receives the Event object from the framework. From this object, we can
+                // get the control which has triggered the event by using oEvent.getSource().
+
+                var oSelectedItem = oEvent.getSource();
+                //From the control instance, we can now determine its own binding context
+                var oContext = oSelectedItem.getBindingContext();
+                var sPath = oContext.getPath();
+
+                //Get the panel instance from the view by its id:
+                var oProductDetailPanel=this.byId("panel1");
+
+                //Bind the panel to the path we have retrieved from the list element:
+                oProductDetailPanel.bindElement({path:sPath});
+
+                this.byId("panel1").setVisible(true);
+
             }
         });
     });
