@@ -46,6 +46,11 @@ sap.ui.define([
                 // apply filter. an empty filter array simply removes the filter
                 // which will make all entries visible again
                 oBinding.filter(aFilter);
+            },
+
+            onListItemSelected: function(oEvent){
+
+                
             }
         });
     });
