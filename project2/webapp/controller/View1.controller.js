@@ -6,7 +6,7 @@
     function (Controller, MessageToast) {
         "use strict";
     
-        return Controller.extend("project2.controller.View1", {
+        return Controller.extend("project_es5.controller.View1", {
             // onInit: function () {
     
             // },

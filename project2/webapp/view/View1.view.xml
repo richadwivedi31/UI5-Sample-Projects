@@ -1,79 +1,73 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns="sap.m" displayBlock="false" controllerName="project2.controller.View1">
-
     <App id="oApp">
         <pages>
             <Page id="op1" title="openSAP-Developing with SAPUI5">
                 <content>
                     <IconTabBar id="idTopLevelIconTabBar" class="sapUiResponsiveContentPadding" selectedKey="db">
                         <items>
-                        <IconTabFilter id="start" text="{i18n>gettingStartedFilter}">
+                            <IconTabFilter id="start" text="{i18n>gettingStartedFilter}">
                                 <Carousel id="oCarous" height="200px">
                                     <pages>
-                                    <Image id="oImg1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/2880px-SAP_2011_logo.svg.png" height="200px"/>
-                                    <Image id="oImg2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/2880px-SAP_2011_logo.svg.png" height="200px"/>
-                                    </pages>        
+                                        <Image id="oImg1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/2880px-SAP_2011_logo.svg.png" height="200px" />
+                                        <Image id="oImg2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/2880px-SAP_2011_logo.svg.png" height="200px" />
+                                    </pages>
                                 </Carousel>
-                                <Button id="b1" text="{i18n>showHelloButtonText}" press="onShowHello"/>
-                                <Input id="in1" value="{helloPanel>/recipient/name}" description="Hello {helloPanel>/recipient/name}" valueLiveUpdate="true" width="60%"/>
-                        </IconTabFilter>
+                                <Button id="b1" text="{i18n>showHelloButtonText}" press="onShowHello" />
+                                <Input id="in1" value="{helloPanel>/recipient/name}" description="Hello {helloPanel>/recipient/name}" valueLiveUpdate="true" width="60%" />
+                            </IconTabFilter>
 
-                        <IconTabFilter id="layouts" text="{i18n>layoutFilter}">
-                            <MessageStrip id="idMessageStrip1" type="Information" showIcon="true" text="Hi, this is message strip and here we can display the alerts or important messages">            
-                            </MessageStrip>
+                            <IconTabFilter id="layouts" text="{i18n>layoutFilter}">
+                                <MessageStrip id="idMessageStrip1" type="Information" showIcon="true" text="Hi, this is message strip and here we can display the alerts or important messages" />
 
-                            <f:SimpleForm id="SimpleForm" title="Address" editable="true" class="editableForm sapUiSmallMarginTopBottom">
-                                <f:content>
-                                    <Label id="idl1" text="{i18n>FormName}"/>
-                                    <Input id="idIn1" value="{address>/Name}"/>
+                                <f:SimpleForm id="SimpleForm" title="Address" editable="true" class="editableForm sapUiSmallMarginTopBottom">
+                                    <f:content>
+                                        <Label id="idl1" text="{i18n>FormName}" />
+                                        <Input id="idIn1" value="{address>/Name}" />
 
-                                    <Label id="idl2" text="{i18n>FormStreet}"/>
-                                    <Input id="idIn2" value="{address>/Street}"/>
+                                        <Label id="idl2" text="{i18n>FormStreet}" />
+                                        <Input id="idIn2" value="{address>/Street}" />
 
-                                    <Label id="idl3" text="{i18n>FormHouseNumber}"/>
-                                    <Input id="idIn3" value="{address>/HouseNumber}"/>
+                                        <Label id="idl3" text="{i18n>FormHouseNumber}" />
+                                        <Input id="idIn3" value="{address>/HouseNumber}" />
 
-                                    <Label id="idl4" text="{i18n>FormPinCode}"/>
-                                    <Input id="idIn4" value="{address>/PinCode}"/>
+                                        <Label id="idl4" text="{i18n>FormPinCode}" />
+                                        <Input id="idIn4" value="{address>/PinCode}" />
 
-                                    <Label id="idl5" text="{i18n>FormCity}"/>
-                                    <Input id="idIn5" value="{address>/City}"/>  
+                                        <Label id="idl5" text="{i18n>FormCity}" />
+                                        <Input id="idIn5" value="{address>/City}" />
 
-                                    <Label id="idl6" text="{i18n>FormState}"/>
-                                    <Input id="idIn6" value="{address>/State}"/>  
+                                        <Label id="idl6" text="{i18n>FormState}" />
+                                        <Input id="idIn6" value="{address>/State}" />
 
-                                    <Label id="idl7" text="{i18n>FormCountry}"/>
-                                    <Input id="idIn7" value="{address>/Country}"/>                                  
+                                        <Label id="idl7" text="{i18n>FormCountry}" />
+                                        <Input id="idIn7" value="{address>/Country}" />
 
-                                    <Select id="idSelect1">
+                                        <Select id="idSelect1">
+                                            <items>
+                                                <core:Item id="idItem1" text="{i18n>CountryIndia}" />
+                                                <core:Item id="idItem2" text="{i18n>CountryUSA}" />
+                                                <core:Item id="idItem3" text="{i18n>CountryCanada}" />
+                                            </items>
+                                        </Select>
+                                    </f:content>
+                                </f:SimpleForm>
+
+                                <Toolbar id="idToolbar1">
+                                    <ToolbarSpacer id="idToolbarSapcer" />
+                                    <Button id="idButton2" text="{i18n>layoutPublishButton}" type="Accept" icon="sap-icon://outbox" />
+                                    <Button id="idButton3" text="{i18n>layoutDraftButton}" icon="sap-icon://save" />
+                                </Toolbar>
+                            </IconTabFilter>
+
+                            <IconTabFilter id="product_list" text="{i18n>dataBindingFilter}" key="db">
+                                <content>
+                                    <List id="list0" items="{/ProductSet}">
                                         <items>
-                                            <core:Item id="idItem1" text="{i18n>CountryIndia}"/>
-                                            <core:Item id="idItem2" text="{i18n>CountryUSA}"/>
-                                            <core:Item id="idItem3" text="{i18n>CountryCanada}"/>
+                                            <ObjectListItem type="Active" title="{Name}" number="{Category}" intro="{ProductID}" id="item1" press="onClickListItem" />
                                         </items>
-                                    </Select>
-
-                                </f:content>
-
-                            </f:SimpleForm>
-
-                            <Toolbar id="idToolbar1">
-                                <ToolbarSpacer id="idToolbarSapcer"/>
-                                <Button id="idButton2" text="{i18n>layoutPublishButton}" type="Accept" icon="sap-icon://outbox"/>
-                                <Button id="idButton3" text="{i18n>layoutDraftButton}" icon="sap-icon://save"/>
-                               
-                            </Toolbar>
-                        </IconTabFilter>
-
-                        <IconTabFilter id="product_list" text="{i18n>dataBindingFilter}" key="db">
-                            <content>
-                                <List id="idList1" headerText="{i18n>productListTitle}" items="{/ProductSet}">
-                                    <items>
-                                        <ObjectListItem id="item0" title="{Name}" number="{Price}">
-                                        </ObjectListItem>
-                                    </items>
-                                </List>    
-                            </content>
-                        </IconTabFilter>
+                                    </List>
+                                </content>
+                            </IconTabFilter>
                         </items>
                     </IconTabBar>
                 </content>
@@ -92,5 +86,4 @@
         description="Hello {helloPanel>/recipient/name}"
         valueLiveUpdate="true"
         width="60%"/> -->
-
 </mvc:View>

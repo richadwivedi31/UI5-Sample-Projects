@@ -12,17 +12,10 @@
         "resources": "resources.json",
         "sourceTemplate": {
             "id": "@sap/generator-fiori:basic",
-            "version": "1.8.1",
+            "version": "1.8.2",
             "toolsId": "074ac865-07e7-4591-8735-bbd7618df87a"
         },
         "dataSources": {
-            "ES5": {
-            "uri": "/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/",
-            "type": "OData",
-            "settings": {
-                "odataVersion": "2.0"
-                }
-            },
             "mainService": {
                 "uri": "/sap/opu/odata/iwbep/GWSAMPLE_BASIC/",
                 "type": "OData",
@@ -32,6 +25,21 @@
                   "odataVersion": "2.0"
                 }
               }
+            },
+            "crossNavigation": {
+                "inbounds": {
+                    "projectes5-inbound": {
+                        "signature": {
+                            "parameters": {},
+                            "additionalParameters": "allowed"
+                        },
+                        "semanticObject": "object",
+                        "action": "demo",
+                        "title": "{{flpTitle}}",
+                        "subTitle": "{{flpSubtitle}}",
+                        "icon": ""
+                    }
+                }
             }
     },
     "sap.ui": {
