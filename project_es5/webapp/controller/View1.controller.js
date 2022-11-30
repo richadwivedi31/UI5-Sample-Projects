@@ -1,13 +1,13 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageToast",
-    "projectes5/model/custom_formatter" //doubt custom formatter not working
+    "../model/formatter" //doubt custom formatter not working
 
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, MessageToast,custom_formatter) {
+    function (Controller, MessageToast,formatter) {
         "use strict";
 
         return Controller.extend("projectes5.controller.View1", {
@@ -15,7 +15,7 @@ sap.ui.define([
     
             // },
 
-            custom_formatter: custom_formatter,
+            formatter : formatter,
             onShowHello: function(){
                 // MessageToast.show("Hello!! This is my first UI5 project");
 
