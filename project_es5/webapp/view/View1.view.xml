@@ -73,7 +73,17 @@
                                             path : 'Category',
                                             group : true
                                             }
-                                            }">
+                                            }"
+                                            growing="true" 
+                                            growingThreshold="10"
+                                            growingScrollToLoad="false"
+                                            >
+                                            <!-- growing enables the paging mechanism 
+                                            growingThreshold to 5 we tell the list to initially display 5
+                                            items and add 5 more when a user clicks on the “More” button
+                                            
+                                            growingScrollToLoad tells the list to only react on a click on the “More” button at the
+                                            bottom instead of automatically loading more items when a user scrolls down in the list. -->
                                         <headerToolbar>
                                             <Toolbar id="toolbar1">
                                                 <Title id="t1" text="{i18n>productListTitle}" />
