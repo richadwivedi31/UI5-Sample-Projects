@@ -110,28 +110,26 @@
       "routes": [
         {
           "name": "Routemaster",
-          "pattern": ":?query:",
+          "pattern": "",
           "target": [
             "Targetmaster"
           ]
         },
         {
           "name": "detail",
-          "pattern": "Product/{productId}",
-          "target": [
-            "Targetdetail"
-          ]
+          "pattern": "detail/{productId}",
+          "target":  ["Targetdetail"]
+          
         }
       ],
       "targets": {
         "Targetmaster": {
           "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
           "viewId": "master",
           "viewName": "master"
         },
         "Targetdetail": {
+   
           "viewType": "XML",
           "viewId": "detail",
           "viewName": "detail"

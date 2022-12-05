@@ -1,18 +1,19 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="assignment1.controller.master" displayBlock="true">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" controllerName="assignment1.controller.master" displayBlock="true">
     <Page id="page" title="{i18n>title}">
     <content>
-      
-    <List id="list0" items="{/Products}">
+    
+    <List id="list0" items="{path:'/Products',parameters:{expand:'Category,Order_Details,Supplier'}}" growing="true" growingThreshold="10" growingScrollToLoad="false">
       
     <items>
       
-        <ObjectListItem type="Active" title="{ProductName}" number="{QuantityPerUnit}" intro="{ProductID}" id="item1" press="onClickListItem">
+        <ObjectListItem type="Navigation" title="{ProductName}" number="{ parts : [ {path: 'UnitPrice'}],type: 'sap.ui.model.type.Currency'}" numberState="{= ${UnitPrice} &gt; 20 ? 'Error' : 'Success' }" intro="{ProductID}" id="item1" press="onClickListItem">
       
         </ObjectListItem>
       
     </items>
       
     </List>
+      
       
     </content>
     </Page>

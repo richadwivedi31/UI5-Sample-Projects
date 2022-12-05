@@ -112,6 +112,10 @@
                                             <Text id="text4" text="{i18n>PanelPrice}: {Price}" />
                                         </l:Grid>
                                     </Panel>
+
+                                    <!-- <ObjectHeader id="panel1" title="{i18n>PanelHeader}" visible="false">
+
+                                    </ObjectHeader> -->
                                 </content>
                             </IconTabFilter>
                         </items>

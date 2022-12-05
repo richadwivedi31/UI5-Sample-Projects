@@ -1,5 +1,16 @@
-<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" controllerName="com.assignment1.assignment1.controller.detail" displayBlock="true">
-  <Page title="{i18n>title}" id="detail">
-  
+<mvc:View xmlns:uxap="sap.uxap" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" controllerName="assignment1.controller.detail" displayBlock="true">
+
+  <Page title="{i18n>title}" id="detail0">
+
+    <ObjectHeader xmlns="sap.m" title="{i18n>header_text}: {ProductName}" id="header0" visible="true" intro="{Category/CategoryName}" number="{parts : [{path: 'UnitPrice'}],type: 'sap.ui.model.type.Currency'}" numberState="{= ${UnitPrice} &gt; 20 ? 'Error' : 'Success' }" backgroundDesign="Solid" class="sapUiResponsivePadding--header">  
+    <ObjectAttribute id="objectAttribute0" text="{i18n>productid}: {ProductID}"/>
+    <ObjectAttribute id="objectAttribute1" text="{i18n>QuantityPerUnit}: {QuantityPerUnit}"/>
+    <ObjectAttribute id="objectAttribute2" text="{i18n>ReorderLevel}: {ReorderLevel}"/>
+    <ObjectAttribute id="objectAttribute4" text="{i18n>unit_stock}: {UnitsInStock}"/>
+    <ObjectAttribute id="objectAttribute5" text="{i18n>UnitsOnOrder}: {UnitsOnOrder}"/>
+   
+    </ObjectHeader>
+    
   </Page>
+
 </mvc:View>
