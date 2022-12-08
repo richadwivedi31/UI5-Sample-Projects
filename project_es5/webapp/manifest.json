@@ -125,7 +125,7 @@
         },
         {
           "name": "productDetail",
-          "pattern": "RouteproductDetail",
+          "pattern": "productDetail/{productId}",
           "target": [
             "TargetproductDetail"
           ]
@@ -142,7 +142,8 @@
         "TargetproductDetail": {
           "viewType": "XML",
           "viewId": "productDetail",
-          "viewName": "productDetail"
+          "viewName": "productDetail",
+           "title": "{i18n>detailtViewTitle}"
         }
       }
     },

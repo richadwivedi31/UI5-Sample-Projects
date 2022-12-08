@@ -1,4 +1,5 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" controllerName="projectes5.controller.View1" displayBlock="true">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"  xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+  xmlns:smartList="sap.ui.comp.smartlist" xmlns:f="sap.ui.layout.form" controllerName="projectes5.controller.View1" displayBlock="false">
     <App id="oApp">
         <pages>
             <Page id="op1" title="openSAP-Developing with SAPUI5">
@@ -66,13 +67,8 @@
 
                             <IconTabFilter id="product_list" text="{i18n>dataBindingFilter}" key="db">
                                 <content>
-                                    <List
-                                        id="list0"
-                                        items="{                                             path : '/ProductSet',                                             sorter : {                                             path : 'Category',                                             group : true                                             }                                             }"
-                                        growing="true"
-                                        growingThreshold="5"
-                                        growingScrollToLoad="false"
-                                    >
+                                    <!-- <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="/ProductSet" persistencyKey="UniqueAndStablePersistencyKey"/> -->
+                                    <List id="list0" items="{path:'/ProductSet',parameters:{expand:'ToSalesOrderLineItems,ToSupplier'},sorter:[{path:'Category',descending:false}]}" growing="true" growingThreshold="5" growingScrollToLoad="false">
                                         <!-- growing enables the paging mechanism 
                                             growingThreshold to 5 we tell the list to initially display 5
                                             items and add 5 more when a user clicks on the “More” button
@@ -87,10 +83,11 @@
                                             </Toolbar>
                                         </headerToolbar>
                                         <items>
+                                            
                                             <ObjectListItem
-                                                type="Active"
+                                                type="Navigation"
                                                 title="{Name}"
-                                                number="{ parts : [ {path: 'Price'},  {path: 'CurrencyCode'}], type: 'sap.ui.model.type.Currency',                                             formatOptions: {                                             showMeasure: false                                             }                                                                                          }"
+                                                number="{ parts : [ {path: 'Price'},  {path: 'CurrencyCode'}], type: 'sap.ui.model.type.Currency', formatOptions: {  showMeasure: false  }                                                                                          }"
                                                 numberState="{= ${Price} &gt; 500 ? 'Error' : 'Success' }"
                                                 intro="{ProductID}"
                                                 id="item1"

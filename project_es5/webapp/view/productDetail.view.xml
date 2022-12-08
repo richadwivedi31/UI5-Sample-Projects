@@ -1,8 +1,14 @@
  <mvc:View controllerName="projectes5.controller.productDetail"
   displayBlock="true"
   xmlns="sap.m"
+ 
   xmlns:mvc="sap.ui.core.mvc">
-  <Page title="{i18n>title}" id="productDetail" >
-    <content></content>
+  <Page title="{i18n>title}" id="productDetail" showNavButton="true" navButtonPress="onNavPress" >
+    <content>
+      <ObjectHeader xmlns="sap.m" title="{Name}" id="header0" visible="true" intro="{Category}" number="{parts : [{path: 'Price'}],type: 'sap.ui.model.type.Currency'}" backgroundDesign="Solid" class="sapUiResponsivePadding--header">  
+      <ObjectAttribute id="objectAttribute0" text="{i18n>PanelID}: {ProductID}"/>
+      <ObjectAttribute id="objectAttribute2" text="{i18n>PanelDescription}: {Description}"/>   
+    </ObjectHeader>
+    </content>
   </Page>
 </mvc:View>

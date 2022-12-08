@@ -53,18 +53,26 @@ sap.ui.define([
                 // receives the Event object from the framework. From this object, we can
                 // get the control which has triggered the event by using oEvent.getSource().
 
-                var oSelectedItem = oEvent.getSource();
-                //From the control instance, we can now determine its own binding context
-                var oContext = oSelectedItem.getBindingContext();
-                var sPath = oContext.getPath();
+                // var oSelectedItem = oEvent.getSource();
+                // //From the control instance, we can now determine its own binding context
+                // var oContext = oSelectedItem.getBindingContext();
+                // var sPath = oContext.getPath();
 
-                //Get the panel instance from the view by its id:
-                var oProductDetailPanel=this.byId("panel1");
+                // //Get the panel instance from the view by its id:
+                // var oProductDetailPanel=this.byId("panel1");
 
-                //Bind the panel to the path we have retrieved from the list element:
-                oProductDetailPanel.bindElement({path:sPath});
+                // //Bind the panel to the path we have retrieved from the list element:
+                // oProductDetailPanel.bindElement({path:sPath});
 
-                this.byId("panel1").setVisible(true);
+                // this.byId("panel1").setVisible(true);
+
+                var clickedProductId=oEvent.getSource().getBindingContext().getPath().substring("/ProductSet".length);
+                
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+
+                oRouter.navTo("productDetail", {
+                    productId:clickedProductId
+                 });
 
             }
         });
